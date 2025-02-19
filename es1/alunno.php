@@ -1,16 +1,20 @@
 <?php
-    class Alunno implements JsonSerializable{
-        protected $name;
-        protected $surname;
-        protected $age;
+class Alunno implements JsonSerializable{
+    protected $name;
+    protected $surname;
+    protected $age;
+    protected $indirizzo;
+    protected $voto=[];
   
 
 //costruttore
-    function __construct($name, $surname, $age) {
+    function __construct( $name, $surname, $age, $voto,$indirizzo) {
         $this->name = $name;
         $this->surname = $surname;
         $this->age = $age;
-      }
+        $this->voto = $voto;
+        $this->indirizzo = $indirizzo;
+    }
 
 //get e set
     function set_name($name) {
@@ -41,7 +45,9 @@
         return[
             "name" => $this->name,
             "surname" => $this->surname,
-            "age" => $this->age
+            "age" => $this->age,
+            "voto" => $this->voto,
+            "indirizzo" => $this->indirizzo
         ];
     }
     function stampa(){
